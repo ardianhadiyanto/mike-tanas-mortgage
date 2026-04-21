@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael Tanas | Mortgage Broker | North Texas</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f1f38;
+    --navy-light: #162b4d;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f9f6f0;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --light-gray: #f3f4f6;
+    --text: #1a2332;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 31, 56, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.6rem 1.4rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    padding: 4rem 3rem 4rem 6rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 30px; height: 1px;
+    background: var(--gold);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.9rem 2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,168,76,0.3); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-trust {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trust-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .trust-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.2rem;
+  }
+
+  /* HERO IMAGE PANEL */
+  .hero-image-panel {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s ease 0.3s both;
+  }
+
+  .hero-photo-frame {
+    position: relative;
+    width: 420px;
+    height: 520px;
+  }
+
+  .hero-photo-frame::before {
+    content: '';
+    position: absolute;
+    top: -16px; left: -16px;
+    right: 16px; bottom: 16px;
+    border: 2px solid rgba(201,168,76,0.4);
+    border-radius: 4px;
+    z-index: 0;
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    position: relative;
+    z-index: 1;
+    display: block;
+  }
+
+  .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--navy-light) 0%, #1e3a5f 100%);
+    border-radius: 4px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .photo-placeholder svg {
+    opacity: 0.3;
+  }
+
+  .photo-placeholder-text {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 0 2rem;
+  }
+
+  .nmls-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.7rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    z-index: 2;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  /* SERVICES TICKER */
+  .ticker {
+    background: var(--gold);
+    padding: 0.8rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .ticker-track {
+    display: inline-flex;
+    animation: ticker 30s linear infinite;
+  }
+
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 2rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+
+  .ticker-dot {
+    width: 4px; height: 4px;
+    background: var(--navy);
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 7rem 6rem;
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--gold);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-highlight {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--navy);
+    border-left: 3px solid var(--gold);
+    padding-left: 1.2rem;
+    margin: 2rem 0;
+    line-height: 1.6;
+  }
+
+  .about-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .detail-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .detail-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-2px); }
+
+  .detail-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .detail-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--navy);
+    margin-bottom: 0.3rem;
+  }
+
+  .detail-desc {
+    font-size: 0.8rem;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  /* SERVICES */
+  .services {
+    padding: 7rem 6rem;
+    background: var(--white);
+  }
+
+  .services-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+  }
+
+  .services-header .section-eyebrow { justify-content: center; }
+  .services-header .section-eyebrow::before { display: none; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 2rem;
+    border: 1px solid transparent;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .service-card:hover { background: var(--white); box-shadow: 0 8px 30px rgba(0,0,0,0.08); border-color: rgba(201,168,76,0.2); transform: translateY(-3px); }
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* HOW IT WORKS */
+  .process {
+    padding: 7rem 6rem;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .process::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .process-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .process-header h2 { color: var(--white); }
+  .process-header .section-eyebrow { justify-content: center; }
+  .process-header .section-eyebrow::before { display: none; }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: calc(12.5% + 30px);
+    right: calc(12.5% + 30px);
+    height: 1px;
+    background: linear-gradient(to right, var(--gold), rgba(201,168,76,0.2), var(--gold), rgba(201,168,76,0.2), var(--gold));
+    z-index: 0;
+  }
+
+  .step {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-number {
+    width: 60px; height: 60px;
+    background: var(--gold);
+    color: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 auto 1.2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .step-title {
+    font-weight: 700;
+    color: var(--white);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-desc {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    padding: 7rem 6rem;
+    background: var(--cream);
+  }
+
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .testimonials-header .section-eyebrow { justify-content: center; }
+  .testimonials-header .section-eyebrow::before { display: none; }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 2rem;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: box-shadow 0.2s;
+  }
+
+  .testimonial-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+
+  .stars {
+    color: var(--gold);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .testimonial-text {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--navy);
+  }
+
+  .testimonial-role {
+    font-size: 0.78rem;
+    color: var(--gray);
+    margin-top: 0.2rem;
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 7rem 6rem;
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-info h2 { margin-bottom: 1rem; }
+
+  .contact-desc {
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+
+  .contact-detail-icon {
+    width: 40px; height: 40px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  /* FORM */
+  .contact-form {
+    background: var(--cream);
+    padding: 2.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-subtitle {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 1.8rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1.5px solid rgba(0,0,0,0.1);
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    background: var(--white);
+    color: var(--text);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--navy);
+    color: var(--white);
+    padding: 1rem;
+    border: none;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: all 0.2s;
+    text-transform: uppercase;
+  }
+
+  .form-submit:hover { background: var(--navy-light); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(15,31,56,0.3); }
+
+  .form-disclaimer {
+    font-size: 0.72rem;
+    color: var(--gray);
+    text-align: center;
+    margin-top: 0.8rem;
+    line-height: 1.5;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 3rem 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--white);
+  }
+
+  .footer-brand span { color: var(--gold); }
+
+  .footer-nmls {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.3rem;
+  }
+
+  .footer-legal {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    text-align: right;
+    max-width: 400px;
+    line-height: 1.5;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; padding-top: 80px; }
+    .hero-content { padding: 4rem 2rem 2rem; }
+    .hero-image-panel { height: 400px; padding: 2rem; }
+    .hero-photo-frame { width: 280px; height: 340px; }
+    .about { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
+    .services { padding: 4rem 2rem; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .process { padding: 4rem 2rem; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-steps::before { display: none; }
+    .testimonials { padding: 4rem 2rem; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .contact { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
+    footer { padding: 2rem; flex-direction: column; text-align: center; }
+    .footer-legal { text-align: center; }
+    nav { padding: 1rem 1.5rem; }
+  }
+
+  @media (max-width: 640px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .about-details { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    h1 { font-size: 2rem; }
+    .hero-trust { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Michael <span>Tanas</span></a>
+  <a href="#contact" class="nav-cta">Get Pre-Approved →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">MPire Financial · North Texas</div>
+    <h1>Your Mortgage.<br><em>Done Right.</em><br>Every Time.</h1>
+    <p class="hero-sub">From first-time buyers to seasoned investors — Michael Tanas brings expertise, transparency, and genuine care to every loan in North Texas and beyond.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get Pre-Approved →</a>
+      <a href="#services" class="btn-secondary">Explore Loan Options</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <span class="trust-number">12+</span>
+        <span class="trust-label">Loan Types</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-number">5★</span>
+        <span class="trust-label">Client Rating</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-number">TX</span>
+        <span class="trust-label">& Nationwide</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-image-panel">
+    <div class="hero-photo-frame">
+      <div class="photo-placeholder">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="30" r="18" fill="white"/>
+          <ellipse cx="40" cy="68" rx="30" ry="18" fill="white"/>
+        </svg>
+        <p class="photo-placeholder-text">Replace with Michael's photo from<br>@iammiketanas</p>
+      </div>
+      <div class="nmls-badge">NMLS #2089061</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">First-Time Buyers <span class="ticker-dot"></span></span>
+    <span class="ticker-item">VA Loans <span class="ticker-dot"></span></span>
+    <span class="ticker-item">FHA Loans <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Conventional Loans <span class="ticker-dot"></span></span>
+    <span class="ticker-item">USDA Loans <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Investor Loans <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Cash-Out Refinance <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Self-Employed <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Bank Statement Loans <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Doctor Loans <span class="ticker-dot"></span></span>
+    <span class="ticker-item">HELOC <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Crypto Mortgages <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Buy Before You Sell <span class="ticker-dot"></span></span>
+    <span class="ticker-item">VA IRRRL <span class="ticker-dot"></span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item">First-Time Buyers <span class="ticker-dot"></span></span>
+    <span class="ticker-item">VA Loans <span class="ticker-dot"></span></span>
+    <span class="ticker-item">FHA Loans <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Conventional Loans <span class="ticker-dot"></span></span>
+    <span class="ticker-item">USDA Loans <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Investor Loans <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Cash-Out Refinance <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Self-Employed <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Bank Statement Loans <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Doctor Loans <span class="ticker-dot"></span></span>
+    <span class="ticker-item">HELOC <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Crypto Mortgages <span class="ticker-dot"></span></span>
+    <span class="ticker-item">Buy Before You Sell <span class="ticker-dot"></span></span>
+    <span class="ticker-item">VA IRRRL <span class="ticker-dot"></span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div>
+    <div class="section-eyebrow">About Michael</div>
+    <h2>A Broker Who Puts People Before Paperwork</h2>
+    <p class="about-text">Michael Tanas is a North Texas mortgage broker with MPire Financial, known for making complex financing feel simple. Whether you're buying your first home, pulling equity to invest, or navigating a non-traditional income situation — Michael has a solution.</p>
+    <div class="about-highlight">"I believe every client deserves a mortgage strategy built around their life — not a one-size-fits-all product pushed by a bank."</div>
+    <p class="about-text">With access to dozens of lenders and an unusually broad range of loan products, Michael can find options that most banks simply don't offer — from crypto-backed mortgages to bank statement loans for the self-employed.</p>
+  </div>
+  <div class="about-details">
+    <div class="detail-card">
+      <div class="detail-icon">🏠</div>
+      <div class="detail-title">First-Time Buyers</div>
+      <div class="detail-desc">Patient guidance through every step from pre-approval to keys in hand.</div>
+    </div>
+    <div class="detail-card">
+      <div class="detail-icon">💼</div>
+      <div class="detail-title">Self-Employed</div>
+      <div class="detail-desc">Bank statement loans and creative solutions for non-W2 income earners.</div>
+    </div>
+    <div class="detail-card">
+      <div class="detail-icon">📈</div>
+      <div class="detail-title">Investors</div>
+      <div class="detail-desc">DSCR, cash-out refi, and investor loan products to grow your portfolio.</div>
+    </div>
+    <div class="detail-card">
+      <div class="detail-icon">🎖️</div>
+      <div class="detail-title">Veterans</div>
+      <div class="detail-desc">VA loans and VA IRRRL streamline refinances — you served, you deserve the best rate.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div class="section-eyebrow">Loan Products</div>
+    <h2>Whatever Your Situation, There's a Loan for That</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🏡</div>
+      <div class="service-name">First-Time Buyer Loans</div>
+      <div class="service-desc">Low down payment options, FHA, USDA, and state programs to help you get into your first home.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎖️</div>
+      <div class="service-name">VA & VA IRRRL Loans</div>
+      <div class="service-desc">Zero down for veterans and active military. IRRRL for quick, low-cost refinances with minimal paperwork.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💼</div>
+      <div class="service-name">Self-Employed & Bank Statement</div>
+      <div class="service-desc">Qualify using 12–24 months of bank statements. No W2s required for business owners and freelancers.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📈</div>
+      <div class="service-name">Investor & DSCR Loans</div>
+      <div class="service-desc">Qualify on rental income, not personal income. Ideal for building a real estate portfolio fast.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💰</div>
+      <div class="service-name">Cash-Out Refinance</div>
+      <div class="service-desc">Tap into your home's equity for renovations, debt payoff, or investment opportunities.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔄</div>
+      <div class="service-name">Buy Before You Sell</div>
+      <div class="service-desc">Bridge financing that lets you buy your next home before your current one sells. No contingencies needed.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏦</div>
+      <div class="service-name">HELOC</div>
+      <div class="service-desc">Flexible line of credit secured by your home equity. Access funds when you need them, pay interest only on what you use.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🩺</div>
+      <div class="service-name">Doctor Loans</div>
+      <div class="service-desc">Specialized financing for physicians and dentists — low or no down payment, no PMI, high DTI flexibility.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">₿</div>
+      <div class="service-name">Crypto Mortgages</div>
+      <div class="service-desc">Use your crypto holdings as assets for qualification. One of the few brokers offering crypto-backed mortgage solutions in Texas.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="process-header">
+    <div class="section-eyebrow">How It Works</div>
+    <h2>From Inquiry to Closing in 4 Simple Steps</h2>
+  </div>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-number">1</div>
+      <div class="step-title">Free Consultation</div>
+      <div class="step-desc">Tell Michael about your goals, income, and timeline. No obligations, just clarity.</div>
+    </div>
+    <div class="step">
+      <div class="step-number">2</div>
+      <div class="step-title">Loan Strategy</div>
+      <div class="step-desc">Michael finds the best loan product and lender for your specific situation.</div>
+    </div>
+    <div class="step">
+      <div class="step-number">3</div>
+      <div class="step-title">Pre-Approval</div>
+      <div class="step-desc">Get a fully underwritten pre-approval letter that makes sellers take you seriously.</div>
+    </div>
+    <div class="step">
+      <div class="step-number">4</div>
+      <div class="step-title">Close & Celebrate</div>
+      <div class="step-desc">Michael guides you through closing day. You get the keys. Everyone wins.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-header">
+    <div class="section-eyebrow">Client Stories</div>
+    <h2>What North Texas Homeowners Are Saying</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Michael made buying my first home so much less scary. He explained every option, never pushed me toward anything, and got me a rate I didn't think was possible on my income."</p>
+      <div class="testimonial-author">Jessica R.</div>
+      <div class="testimonial-role">First-Time Buyer · Frisco, TX</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"As a self-employed contractor, I'd been turned down twice before. Michael found a bank statement loan that actually worked for how I get paid. Closed in 28 days."</p>
+      <div class="testimonial-author">Daniel M.</div>
+      <div class="testimonial-role">Self-Employed Borrower · Plano, TX</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"I'm a veteran and Michael made sure I got every benefit I was entitled to. Zero down, no PMI — I never knew a VA loan could be this smooth. Highly recommend."</p>
+      <div class="testimonial-author">Marcus T.</div>
+      <div class="testimonial-role">Veteran Homebuyer · McKinney, TX</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-info">
+    <div class="section-eyebrow">Get Started</div>
+    <h2>Ready to Talk Mortgages?</h2>
+    <p class="contact-desc">Whether you're ready to apply or just exploring your options, reach out to Michael for a free, no-pressure consultation. Most clients have a clear plan within 24 hours.</p>
+    <div class="contact-details">
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div>
+          <strong>MPire Financial</strong><br>
+          <span style="color:var(--gray);font-size:0.9rem;">North Texas (serving TX & beyond)</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🏦</div>
+        <div>
+          <strong>NMLS #2089061</strong><br>
+          <span style="color:var(--gray);font-size:0.9rem;">Licensed Mortgage Broker</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📱</div>
+        <div>
+          <strong>Instagram</strong><br>
+          <span style="color:var(--gray);font-size:0.9rem;">@iammiketanas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <div class="form-title">Let's Find Your Loan</div>
+    <div class="form-subtitle">Fill out the form and Michael will be in touch within 24 hours.</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" placeholder="Jane">
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Smith">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="jane@example.com">
+    </div>
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="tel" placeholder="(214) 555-0000">
+    </div>
+    <div class="form-group">
+      <label>I'm Looking For</label>
+      <select>
+        <option value="">Select a loan type...</option>
+        <option>First-Time Buyer Loan</option>
+        <option>VA Loan</option>
+        <option>FHA Loan</option>
+        <option>Conventional Loan</option>
+        <option>USDA Loan</option>
+        <option>Self-Employed / Bank Statement Loan</option>
+        <option>Investor / DSCR Loan</option>
+        <option>Cash-Out Refinance</option>
+        <option>HELOC</option>
+        <option>Doctor Loan</option>
+        <option>Buy Before You Sell</option>
+        <option>Crypto Mortgage</option>
+        <option>VA IRRRL</option>
+        <option>Not Sure — Need Guidance</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Anything Else? (Optional)</label>
+      <textarea placeholder="Tell me a little about your situation..."></textarea>
+    </div>
+    <button class="form-submit">Send My Inquiry</button>
+    <p class="form-disclaimer">By submitting this form, you consent to be contacted by Michael Tanas regarding mortgage services. Your information is never sold or shared.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Michael <span>Tanas</span></div>
+    <div class="footer-nmls">MPire Financial · NMLS #2089061 · North Texas</div>
+  </div>
+  <div class="footer-legal">
+    All loans subject to credit approval. Rates and fees subject to change. This is not a commitment to lend. Equal Housing Lender. NMLS #2089061. © 2026 Michael Tanas.
+  </div>
+</footer>
+
+</body>
+</html>
